@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DZ_WPF_Base.Resource;
 
 namespace DZ_WPF_Base
 {
@@ -23,6 +25,19 @@ namespace DZ_WPF_Base
         public MainWindow()
         {
             InitializeComponent();
+
+            //using(MCSEntities db = new MCSEntities())
+            //{
+            //    var Equipment = db.newEquipment;
+            //    string ListOfYear = "";
+
+            //    foreach (var item in Equipment)
+            //    {
+            //        ListOfYear += item.strManufYear + "\n";
+            //    }
+
+            //    ManulYear_TextBox.Text += ListOfYear;
+            //}
         }
     }
 }

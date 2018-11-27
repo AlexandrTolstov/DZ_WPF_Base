@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Equipment">
+                
+            </TabItem>
+            <TabItem Header="Manufacturer">
+                
+            </TabItem>
+            <TabItem Header="Model">
+                
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

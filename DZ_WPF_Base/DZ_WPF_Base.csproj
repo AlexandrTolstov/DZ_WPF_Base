@@ -34,8 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,6 +63,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Resource\BLL\Equipment_Base.cs" />
+    <Compile Include="Resource\BLL\Manufacturer_Base.cs" />
+    <Compile Include="Resource\BLL\Model_Base.cs" />
+    <Compile Include="Resource\MCS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\MCS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\MCS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\newEquipment.cs">
+      <DependentUpon>MCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\TablesLocation.cs">
+      <DependentUpon>MCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\TablesManufacturer.cs">
+      <DependentUpon>MCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\TablesModel.cs">
+      <DependentUpon>MCS.tt</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,13 +124,36 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EntityDeploy Include="Resource\MCS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MCS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Resource\MCS.edmx.diagram">
+      <DependentUpon>MCS.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\MCS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MCS.Context.cs</LastGenOutput>
+      <DependentUpon>MCS.edmx</DependentUpon>
+    </Content>
+    <Content Include="Resource\MCS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MCS.edmx</DependentUpon>
+      <LastGenOutput>MCS.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
