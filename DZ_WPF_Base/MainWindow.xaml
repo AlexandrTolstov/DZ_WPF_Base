@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBox x:Name="Textlog"></TextBox>
         <TabControl>
-            <TabItem Header="Equipment">
-                
+            <TabItem Header="Equipment" x:Name="Rat">
+                <TextBox x:Name="EqTextBlock"></TextBox>
             </TabItem>
             <TabItem Header="Manufacturer">
                 
