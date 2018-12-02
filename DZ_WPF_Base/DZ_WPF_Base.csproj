@@ -63,10 +63,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Resource\BLL\Adress_Base.cs" />
+    <Compile Include="Resource\BLL\Adress_Data.cs" />
     <Compile Include="Resource\BLL\Equipment_Base.cs" />
     <Compile Include="Resource\BLL\Equipment_Data.cs" />
     <Compile Include="Resource\BLL\Manufacturer_Base.cs" />
+    <Compile Include="Resource\BLL\Manufacturer_Data.cs" />
     <Compile Include="Resource\BLL\Model_Base.cs" />
+    <Compile Include="Resource\BLL\Model_Data.cs" />
     <Compile Include="Resource\MCS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
