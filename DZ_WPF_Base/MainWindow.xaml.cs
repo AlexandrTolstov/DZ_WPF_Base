@@ -104,13 +104,11 @@ namespace DZ_WPF_Base
 
                 ComboBoxItem[] itemsMun = new ComboBoxItem[NumOfRow];
 
-                //bool first = true;
                 foreach (var item in munDB.Manufacturer_Table)
                 {
                     itemsMun[i] = new ComboBoxItem
                     {
                         Content = item.strName
-                        //IsSelected = first
                     };
                     MunCombo.Items.Add(itemsMun[i]);
                     i++;
@@ -120,31 +118,6 @@ namespace DZ_WPF_Base
             {
                 MessageBox.Show(ex.Message);
             }
-
-            //try
-            //{
-            //    Model_Data modDB = new Model_Data();
-            //    int i = 0;
-            //    int NumOfRow = modDB.Model_Table.Count;
-
-            //    ComboBoxItem[] itemsMod = new ComboBoxItem[NumOfRow];
-
-            //    bool first = true;
-            //    foreach (var item in modDB.Model_Table)
-            //    {
-            //        itemsMod[i] = new ComboBoxItem
-            //        {
-            //            Content = item.strName,
-            //            IsSelected = first
-            //        };
-            //        ModCombo.Items.Add(itemsMod[i]);
-            //        i++;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
 
             try
             {

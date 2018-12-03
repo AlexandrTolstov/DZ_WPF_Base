@@ -76,16 +76,11 @@
                 </Border>
             </TabItem>
             <TabItem Header="Manufacturer">
-                
+
             </TabItem>
             <TabItem Header="Model">
-                
+
             </TabItem>
         </TabControl>
     </Grid>
 </Window>
-
-<!--
-        public string ManufacturerName { get; set; } //Имя производителя
-        public string ModelName { get; set; } //Имя модели
-        public string strLocationName { get; set; } //Название улицы-->
