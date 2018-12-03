@@ -108,6 +108,7 @@ namespace DZ_WPF_Base.Resource.BLL
                     };
                     db.newEquipment.Add(Eq);
                     db.SaveChanges();
+                    MessageBox.Show("Данные записаны");
                 }
             }
             catch (Exception)
