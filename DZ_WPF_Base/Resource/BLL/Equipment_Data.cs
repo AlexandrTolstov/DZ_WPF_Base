@@ -70,12 +70,12 @@ namespace DZ_WPF_Base.Resource.BLL
                     newEquipment Eq = new newEquipment
                     {
                         //intEquipmentID = 847,                                                      //[intEquipmentID] [int] IDENTITY(1,1) NOT NULL,
-                        intGarageRoom = null,                                          //[intGarageRoom] [nvarchar](50) NULL, 
-                        intManufacturerID = ManID,                                                  //[intManufacturerID] [int] NOT NULL,
-                        intModelID = ModID, //****                                                  //[intModelID] [int] NOT NULL,
+                        intGarageRoom = null,                                                       //[intGarageRoom] [nvarchar](50) NULL, 
+                        intManufacturerID = ManID,                                                //[intManufacturerID] [int] NOT NULL,
+                        intModelID = ModID, //****                                                //[intModelID] [int] NOT NULL,
                         strManufYear = DateTime.Now.Year.ToString(),                              //[strManufYear] [nvarchar](4) NULL,
                         intSNPrefixID = (int)DateTime.Now.Second,                                 //[intSNPrefixID] [int] NOT NULL,
-                        strSerialNo = null,                                                         //[strSerialNo] [nvarchar](20) NULL,
+                        strSerialNo = null,                                                       //[strSerialNo] [nvarchar](20) NULL,
                         intEquipmentTypeID = (new Random()).Next(1, 999),                         //[intEquipmentTypeID] [int] NOT NULL,
                         intSMCSFamilyID = (new Random()).Next(1, 999),                            //[intSMCSFamilyID] [int] NOT NULL,
                         intSizeID = (new Random()).Next(300, 9999),                               //[intSizeID] [int] NOT NULL,
@@ -84,14 +84,14 @@ namespace DZ_WPF_Base.Resource.BLL
                         LastDate = DateTime.Now,                                                  //[LastDate] [date] NOT NULL,
                         intLastMetered = ((double)(new Random()).Next(1000, 9999)) / 100,         //[intLastMetered] [float] NOT NULL,
                         intTotalMetered = ((double)(new Random()).Next(1000, 9999)) / 100,        //[intTotalMetered] [float] NOT NULL,
-                        intlimitDay = (new Random()).Next(1, 30),                                                        //[intlimitDay] [int] NULL,
-                        intlimitWeek = (new Random()).Next(1, 7),                                                         //[intlimitWeek] [int] NULL,
+                        intlimitDay = (new Random()).Next(1, 30),                                 //[intlimitDay] [int] NULL,
+                        intlimitWeek = (new Random()).Next(1, 7),                                 //[intlimitWeek] [int] NULL,
                         bitActive = Convert.ToBoolean((new Random()).Next(0, 1)),                 //[bitActive] [bit] NOT NULL,
                         bitPreservation = Convert.ToBoolean((new Random()).Next(0, 1)),          //[bitPreservation] [bit] NOT NULL,
                         bitMeter = Convert.ToBoolean((new Random()).Next(0, 1)),                  //[bitMeter] [bit] NOT NULL,
                         bitKTG = Convert.ToBoolean((new Random()).Next(0, 1)),                   //[bitKTG] [bit] NOT NULL,
-                        isDelete = Convert.ToBoolean((new Random()).Next(0, 1)),                                                            //[isDelete] [bit] NOT NULL CONSTRAINT [DF_newEquipment_isDelete]  DEFAULT ((0)),
-                        intLocationId = locID,                                                         //[intLocationId] [int] NOT NULL,
+                        isDelete = Convert.ToBoolean((new Random()).Next(0, 1)),                  //[isDelete] [bit] NOT NULL CONSTRAINT [DF_newEquipment_isDelete]  DEFAULT ((0)),
+                        intLocationId = locID,                                                    //[intLocationId] [int] NOT NULL,
                         strDescription = null,                                                      //[strDescription] [nvarchar](1050) NULL,
                         floatCostTires = null,                                                      //[floatCostTires] [float] NULL,
                         intCostTiresCurrency = null,                                                //[intCostTiresCurrency] [int] NULL,
@@ -112,7 +112,7 @@ namespace DZ_WPF_Base.Resource.BLL
             }
             catch (Exception)
             {
-                MessageBox.Show("Такая запись уже существует в базе данных\nПопробуйте еще раз");
+                MessageBox.Show("Невозможно записать данные");
             }
         }
 

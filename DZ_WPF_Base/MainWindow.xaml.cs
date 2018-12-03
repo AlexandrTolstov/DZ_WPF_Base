@@ -104,13 +104,13 @@ namespace DZ_WPF_Base
 
                 ComboBoxItem[] itemsMun = new ComboBoxItem[NumOfRow];
 
-                bool first = true;
+                //bool first = true;
                 foreach (var item in munDB.Manufacturer_Table)
                 {
                     itemsMun[i] = new ComboBoxItem
                     {
-                        Content = item.strName,
-                        IsSelected = first
+                        Content = item.strName
+                        //IsSelected = first
                     };
                     MunCombo.Items.Add(itemsMun[i]);
                     i++;
@@ -121,30 +121,30 @@ namespace DZ_WPF_Base
                 MessageBox.Show(ex.Message);
             }
 
-            try
-            {
-                Model_Data modDB = new Model_Data();
-                int i = 0;
-                int NumOfRow = modDB.Model_Table.Count;
+            //try
+            //{
+            //    Model_Data modDB = new Model_Data();
+            //    int i = 0;
+            //    int NumOfRow = modDB.Model_Table.Count;
 
-                ComboBoxItem[] itemsMod = new ComboBoxItem[NumOfRow];
+            //    ComboBoxItem[] itemsMod = new ComboBoxItem[NumOfRow];
 
-                bool first = true;
-                foreach (var item in modDB.Model_Table)
-                {
-                    itemsMod[i] = new ComboBoxItem
-                    {
-                        Content = item.strName,
-                        IsSelected = first
-                    };
-                    ModCombo.Items.Add(itemsMod[i]);
-                    i++;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    bool first = true;
+            //    foreach (var item in modDB.Model_Table)
+            //    {
+            //        itemsMod[i] = new ComboBoxItem
+            //        {
+            //            Content = item.strName,
+            //            IsSelected = first
+            //        };
+            //        ModCombo.Items.Add(itemsMod[i]);
+            //        i++;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
             try
             {
@@ -204,6 +204,63 @@ namespace DZ_WPF_Base
             EqD.Set_Data(ManID: SelMunID, ModID: SelModID, locID: SelAdrID);
             EquipStack.Children.Clear();
             Initial_Equipment();
+        }
+
+        private void MunCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Equipment_Data EqD = new Equipment_Data();
+
+            string SelItemMun = (((ComboBoxItem)(MunCombo.SelectedItem)).Content).ToString();
+            int SelModID = 0;
+
+            List<Equipment_Base> Eq_Data = EqD.GetData();
+
+            foreach (var item in Eq_Data)
+            {
+                if (item.ManufacturerName.ToString() == SelItemMun)
+                {
+                    SelModID = item.intModelID;
+                }
+            }
+
+            try
+            {
+                Model_Data modDB = new Model_Data();
+                int i = 0;
+                int NumOfRow = modDB.Model_Table.Count;
+
+                ComboBoxItem[] itemsMod = new ComboBoxItem[NumOfRow];
+                ModCombo.Items.Clear();
+
+                bool first = true;
+                bool teg = false;
+                foreach (var item in modDB.Model_Table)
+                {
+                    if(SelModID == item.intModelID)
+                    {
+                        teg = true;
+                        itemsMod[i] = new ComboBoxItem
+                        {
+                            Content = item.strName,
+                            IsSelected = first
+                        };
+                        ModCombo.Items.Add(itemsMod[i]);
+                        i++;
+                    }
+                }
+                if(teg == false)
+                {
+                    itemsMod[i] = new ComboBoxItem
+                    {
+                        Content = "Нет моделей"
+                    };
+                    ModCombo.Items.Add(itemsMod[i]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
